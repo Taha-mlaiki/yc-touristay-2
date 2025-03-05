@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ReservationConfirmed;
+use App\Mail\ReservationOwner;
 use App\Models\Announcement;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
@@ -33,6 +34,7 @@ class ReservationController extends Controller
                 "price" => $property->price,
             ];
             Mail::to($user_email)->send(new ReservationConfirmed($details));
+            Mail::to(Auth::user()->email)->send(new ReservationOwner($details));
             return redirect()->route("announcement_details", ["id" => $req->announcement_id])->with("success", "Reservations created");
         } catch (\Throwable $th) {
             dd($th->getMessage());

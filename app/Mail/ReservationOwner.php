@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ReservationConfirmed extends Mailable
+class ReservationOwner extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -24,10 +24,10 @@ class ReservationConfirmed extends Mailable
     }
 
 
-    public function build(){
-        $details = $this->details ;
-        return $this->subject("✅ Reservation Recu")
-        ->view("emails.reservation_recu",compact("details"));
+    public function build()
+    {
+        $details = $this->details;
+        return $this->subject("🎉 You have new reservation 🎉")
+            ->view("emails.owner_recu", compact("details"));
     }
-
 }

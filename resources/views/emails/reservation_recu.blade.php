@@ -5,7 +5,7 @@
     <title>Property Reservation Receipt</title>
 </head>
 <body style="background-color: #f3f4f6; margin: 0; padding: 20px; font-family: Arial, sans-serif;">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="background-color: #ffffff; padding: 20px; border: 1px solid #e5e7eb; border-collapse: collapse;">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="background-color: #ffffff; padding: 20px; border: 1px solid #e5e7eb; border-collapse: padding:20px collapse;">
         <!-- Header -->
         <tr>
             <td width="50%" style="padding-bottom: 15px;">

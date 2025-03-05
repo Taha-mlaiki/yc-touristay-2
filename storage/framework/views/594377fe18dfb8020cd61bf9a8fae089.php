@@ -60,13 +60,6 @@
             </td>
         </tr>
 
-        <!-- Thank You Note -->
-        <tr>
-            <td colspan="2" style="text-align: center; padding-top: 15px; border-top: 1px solid #e5e7eb;">
-                <p style="font-size: 16px; font-weight: bold; color: #374151; margin: 0 0 5px 0;">Thank You for Choosing Us!</p>
-                <p style="font-size: 14px; color: #4b5563; margin: 0;">We look forward to welcoming you to Sunset Villa. If you have any questions, feel free to contact us at support@xai.com.</p>
-            </td>
-        </tr>
     </table>
 </body>
-</html><?php /**PATH C:\Users\hp\Desktop\TA\yc-touristay-2\resources\views/emails/reservation_recu.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\Users\hp\Desktop\TA\yc-touristay-2\resources\views/emails/owner_recu.blade.php ENDPATH**/ ?>
