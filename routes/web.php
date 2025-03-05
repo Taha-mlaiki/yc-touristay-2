@@ -21,8 +21,11 @@ Route::middleware("auth")->group(function () {
     })->name("owner.dashboard");
 
     Route::get('/owner/announcements', [OwnerController::class, "announcements"])->name("owner.announcements");
+    Route::get('/owner/reservations', [OwnerController::class, "reservations"])->name("owner.reservations");
 
     Route::get('/admin/dashbaord', [AdminController::class, 'dashboard'])->name("admin.dashboard");
+    Route::get('/admin/reservations', [AdminController::class, "reservations"])->name("admin.reservations");
+
 
     Route::get('/announcements', [AnnouncementController::class, "index"])->name("announcements");
     Route::delete('/announcements', [AnnouncementController::class, "disable"])->name("announcement_disable");
