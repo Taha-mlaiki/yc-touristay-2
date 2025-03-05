@@ -1,8 +1,13 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
+    <x-slot name="header" class="flex">
+        <div class="flex items-center gap-x-4">
+            <h2 class="font-semibold text-xl ms-5 text-gray-800 leading-tight">
+                <x-nav-link :href="route('admin.reservations')" :active="request()->routeIs('admin.reservations')">
+                    {{ __('Reservations') }}
+                </x-nav-link>
+            </h2>
+
+        </div>
     </x-slot>
 
     <div class="bg-gray-100 container mx-auto p-4 md:p-8">
@@ -85,8 +90,10 @@
                                     <div class="font-medium text-gray-900">{{ $announcement->title }}</div>
                                 </td>
                                 <td class="px-6 py-4 text-gray-600">{{ $announcement->city }}</td>
-                                <td class="px-6 py-4 text-gray-600">{{ date("d-m-Y", strtotime($announcement->start_date)) }}</td>
-                                <td class="px-6 py-4 text-gray-600">{{ date("d-m-Y", strtotime($announcement->end_date)) }}</td>
+                                <td class="px-6 py-4 text-gray-600">
+                                    {{ date('d-m-Y', strtotime($announcement->start_date)) }}</td>
+                                <td class="px-6 py-4 text-gray-600">
+                                    {{ date('d-m-Y', strtotime($announcement->end_date)) }}</td>
                                 <td class="px-6 py-4 text-center">
                                     <form action={{ route('announcement_disable') }} method="POST">
                                         @csrf
