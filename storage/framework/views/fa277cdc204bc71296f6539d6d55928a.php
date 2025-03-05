@@ -148,14 +148,14 @@
                         </div>
                         <?php if (isset($component)) { $__componentOriginalf437511b3f5ffb0343414062d24e6891 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalf437511b3f5ffb0343414062d24e6891 = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.reservation_modal','data' => ['reservations' => $announcement->reservations,'announcementId' => $announcement->id]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.reservation_modal','data' => ['reservations' => $announcement->reservations,'announcementId' => $announcement->id,'title' => $announcement->title,'price' => $announcement->price]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('reservation_modal'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['reservations' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($announcement->reservations),'announcement_id' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($announcement->id)]); ?>
+<?php $component->withAttributes(['reservations' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($announcement->reservations),'announcement_id' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($announcement->id),'title' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($announcement->title),'price' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($announcement->price)]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginalf437511b3f5ffb0343414062d24e6891)): ?>

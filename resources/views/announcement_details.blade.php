@@ -134,7 +134,7 @@
                             <span
                                 class="text-white text-4xl font-bold">${{ number_format($announcement->price) }}</span>
                         </div>
-                        <x-reservation_modal :reservations="$announcement->reservations" :announcement_id='$announcement->id' />
+                        <x-reservation_modal :reservations="$announcement->reservations" :announcement_id='$announcement->id' :title='$announcement->title' :price='$announcement->price' />
                     </div>
                 </div>
             </div>

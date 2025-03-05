@@ -1,8 +1,7 @@
-
 <?php $attributes ??= new \Illuminate\View\ComponentAttributeBag;
 
 $__newAttributes = [];
-$__propNames = \Illuminate\View\ComponentAttributeBag::extractPropNames((['reservations', 'announcement_id']));
+$__propNames = \Illuminate\View\ComponentAttributeBag::extractPropNames((['reservations', 'announcement_id', 'title', 'price']));
 
 foreach ($attributes->all() as $__key => $__value) {
     if (in_array($__key, $__propNames)) {
@@ -17,7 +16,7 @@ $attributes = new \Illuminate\View\ComponentAttributeBag($__newAttributes);
 unset($__propNames);
 unset($__newAttributes);
 
-foreach (array_filter((['reservations', 'announcement_id']), 'is_string', ARRAY_FILTER_USE_KEY) as $__key => $__value) {
+foreach (array_filter((['reservations', 'announcement_id', 'title', 'price']), 'is_string', ARRAY_FILTER_USE_KEY) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 }
 
@@ -56,10 +55,12 @@ unset($__defined_vars); ?>
 
         <!-- Modal Body -->
         <div class="p-5">
-            <form action=<?php echo e(route("create_reservation")); ?> method="POST" id="reservationForm">
+            <form action=<?php echo e(route('payment.process')); ?> method="POST" id="reservationForm">
                 <?php echo csrf_field(); ?>
                 <!-- Date Inputs -->
                 <input type="hidden" name="announcement_id" value='<?php echo e($announcement_id); ?>'>
+                <input type="hidden" name="title" value='<?php echo e($title); ?>'>
+                <input type="hidden" name="amount" value='<?php echo e($price); ?>'>
                 <div class="mb-4">
                     <label for="start_date" class="block text-sm font-medium text-gray-700 mb-1">Check-in Date*</label>
                     <input type="text" id="start_date" name="start_date" placeholder="Select check-in date"

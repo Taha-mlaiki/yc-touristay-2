@@ -10,10 +10,14 @@ class reservation_modal extends Component
 {
     public $reservation;
     public $announcement_id;
-    public function __construct($reservation = [], $announcement_id)
+    public $title;
+    public $price;
+    public function __construct($reservation = [], $announcement_id,$title,$price)
     {
         $this->reservation = $reservation;
         $this->announcement_id = $announcement_id;
+        $this->title = $title;
+        $this->price = $price;
     }
 
     /**
@@ -23,6 +27,8 @@ class reservation_modal extends Component
     {
         $reservation = $this->reservation;
         $announcement_id = $this->announcement_id;
-        return view('components.reservation_modal', compact("reservation,announcement_id"));
+        $title = $this->title;
+        $price = $this->price;
+        return view('components.reservation_modal', compact("reservation,announcement_id,title,price"));
     }
 }

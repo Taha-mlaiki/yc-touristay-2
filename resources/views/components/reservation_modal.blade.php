@@ -1,5 +1,4 @@
-
-@props(['reservations', 'announcement_id'])
+@props(['reservations', 'announcement_id', 'title', 'price'])
 <div id="openModalBtn" class="mt-4 pt-4 border-t border-blue-400 border-opacity-30">
     <button
         class="w-full bg-white text-blue-700 hover:bg-blue-50 font-bold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2">
@@ -28,10 +27,12 @@
 
         <!-- Modal Body -->
         <div class="p-5">
-            <form action={{ route("create_reservation") }} method="POST" id="reservationForm">
+            <form action={{ route('payment.process') }} method="POST" id="reservationForm">
                 @csrf
                 <!-- Date Inputs -->
                 <input type="hidden" name="announcement_id" value='{{ $announcement_id }}'>
+                <input type="hidden" name="title" value='{{ $title }}'>
+                <input type="hidden" name="amount" value='{{ $price }}'>
                 <div class="mb-4">
                     <label for="start_date" class="block text-sm font-medium text-gray-700 mb-1">Check-in Date*</label>
                     <input type="text" id="start_date" name="start_date" placeholder="Select check-in date"

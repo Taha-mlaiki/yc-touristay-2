@@ -4,17 +4,21 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\FavoritController;
 use App\Http\Controllers\OwnerController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
 use App\Models\Announcement;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware("auth")->group(function () {
     Route::get('/home', function () {
-        $announcements = Announcement::with("images")->where("isActive",true)->latest()->take(3)->get();
+        $announcements = Announcement::with("images")->where("isActive", true)->latest()->take(3)->get();
         return view("home", compact('announcements'));
     })->name("home");
+
+    Route::post('/process', [PaymentController::class, "process"])->name("payment.process");
+    Route::get('/success', [PaymentController::class, "success"])->name("payment.success");
+    Route::get('/cancel', [PaymentController::class, "cancel"])->name("payment.cancel");
 
     Route::get('/owner/dashbaord', function () {
         return view("owner.dashboard");
@@ -35,7 +39,6 @@ Route::middleware("auth")->group(function () {
     Route::get('/announcement/update/{id}', [AnnouncementController::class, "showUpdate"])->name("announcement_edit");
     Route::put('/announcement/update', [AnnouncementController::class, "update"])->name("announcement_update");
     Route::post('/announcements/delete', [AnnouncementController::class, "delete"])->name("announcements.delete");
-    Route::post("/reservation",[ReservationController::class, "create"])->name("create_reservation");
 
 
     Route::get('/favorites', [FavoritController::class, "index"])->name("favorites");
